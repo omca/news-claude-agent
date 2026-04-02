@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude News Feed</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #0f0f1a;
+        color: #e0e0e0;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #d4a574, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .updated {
+        color: #666;
+        font-size: 0.85rem;
+      }
+      .news-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .news-card {
+        background: #1a1a2e;
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 1px solid #2a2a4a;
+        transition: border-color 0.3s;
+      }
+      .news-card:hover {
+        border-color: #c084fc;
+      }
+      .news-card.breaking {
+        border-left: 4px solid #f87171;
+      }
+      .news-card.update {
+        border-left: 4px solid #4ade80;
+      }
+      .news-card.business {
+        border-left: 4px solid #60a5fa;
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+        gap: 1rem;
+      }
+      .card-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .card-title a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .card-title a:hover {
+        color: #c084fc;
+      }
+      .card-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 20px;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      .tag-breaking {
+        background: rgba(248, 113, 113, 0.2);
+        color: #f87171;
+      }
+      .tag-update {
+        background: rgba(74, 222, 128, 0.2);
+        color: #4ade80;
+      }
+      .tag-business {
+        background: rgba(96, 165, 250, 0.2);
+        color: #60a5fa;
+      }
+      .card-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.8rem;
+        color: #888;
+      }
+      .card-summary {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: #bbb;
+      }
+      .card-source {
+        margin-top: 0.75rem;
+        font-size: 0.8rem;
+      }
+      .card-source a {
+        color: #c084fc;
+        text-decoration: none;
+      }
+      .card-source a:hover {
+        text-decoration: underline;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 3rem;
+        color: #444;
+        font-size: 0.75rem;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Claude &amp; Anthropic News Feed</h1>
+      <p class="updated">Last updated: 2026-04-02 06:15 UTC</p>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card breaking">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code"
+              target="_blank"
+              >Anthropic Rushes to Limit Leak of Claude Code Source Code</a
+            >
+          </div>
+          <span class="card-tag tag-breaking">BREAKING</span>
+        </div>
+        <div class="card-meta">
+          <span>Bloomberg</span>
+          <span>2026-04-01 18:00 UTC</span>
+        </div>
+        <div class="card-summary">
+          A large source-map file slipped into version 2.1.88 of the
+          @anthropic-ai/claude-code npm package, exposing approximately 1,900
+          files and 512,000 lines of internal source code. Security researcher
+          Chaofan Shou spotted the file and flagged it on X. Anthropic stated no
+          customer data was exposed and blamed "process errors" in their fast
+          release cycle.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="news-card breaking">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+              target="_blank"
+              >Anthropic's Secret 'Mythos' Model Revealed in Data Leak</a
+            >
+          </div>
+          <span class="card-tag tag-breaking">BREAKING</span>
+        </div>
+        <div class="card-meta">
+          <span>Fortune</span>
+          <span>2026-03-26 14:00 UTC</span>
+        </div>
+        <div class="card-summary">
+          Anthropic has begun testing a new AI model called Claude Mythos with
+          early access customers. The company believes it poses unprecedented
+          cybersecurity risks, calling it "currently far ahead of any other AI
+          model in cyber capabilities" and warning it could exploit
+          vulnerabilities faster than defenders can patch them.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="news-card business">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october"
+              target="_blank"
+              >Anthropic Eyes $60 Billion IPO as Soon as October 2026</a
+            >
+          </div>
+          <span class="card-tag tag-business">BUSINESS</span>
+        </div>
+        <div class="card-meta">
+          <span>Bloomberg</span>
+          <span>2026-03-27 12:00 UTC</span>
+        </div>
+        <div class="card-summary">
+          Anthropic is considering going public as soon as October 2026, racing
+          rival OpenAI to hold an IPO. Bankers expect the company to raise more
+          than $60 billion, potentially making it the second-biggest IPO deal in
+          history after SpaceX. Revenue has doubled to $19B annualized in early
+          2026.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="news-card business">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban"
+              target="_blank"
+              >Judge Temporarily Blocks Trump Administration's Anthropic Ban</a
+            >
+          </div>
+          <span class="card-tag tag-business">LEGAL</span>
+        </div>
+        <div class="card-meta">
+          <span>NPR</span>
+          <span>2026-03-26 10:00 UTC</span>
+        </div>
+        <div class="card-summary">
+          A federal judge has temporarily blocked the U.S. government's
+          designation of Anthropic as a supply chain risk. The company has
+          warned that the labeling could cost it billions in lost revenue and is
+          fighting the designation in court.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="news-card update">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://www.geeky-gadgets.com/claude-code-channels/"
+              target="_blank"
+              >Claude Code March 2026: Multi-Agent, Computer Use & 1M Context</a
+            >
+          </div>
+          <span class="card-tag tag-update">UPDATE</span>
+        </div>
+        <div class="card-meta">
+          <span>Geeky Gadgets</span>
+          <span>2026-03-17 09:00 UTC</span>
+        </div>
+        <div class="card-summary">
+          Claude Code's latest update brings Computer Use for controlling Mac
+          apps without APIs, a 1M-token context window for large projects, 128k
+          max output tokens for Opus/Sonnet, named subagents, alt-screen
+          rendering, and PowerShell support for Windows.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://www.geeky-gadgets.com/claude-code-channels/"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="news-card update">
+        <div class="card-header">
+          <div class="card-title">
+            <a
+              href="https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html"
+              target="_blank"
+              >Anthropic Revenue Doubles to $19B Annualized, Closing Gap with
+              OpenAI</a
+            >
+          </div>
+          <span class="card-tag tag-update">REVENUE</span>
+        </div>
+        <div class="card-meta">
+          <span>Yahoo Finance</span>
+          <span>2026-04-01 14:42 UTC</span>
+        </div>
+        <div class="card-summary">
+          Thanks to the strength of its automated coding tools, Anthropic more
+          than doubled its annualized sales to $19 billion during the first two
+          months of 2026, closing the revenue gap with larger rival OpenAI
+          significantly.
+        </div>
+        <div class="card-source">
+          <a
+            href="https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html"
+            target="_blank"
+            >Read full article &rarr;</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Powered by Claude Code Agent &bull; Auto-updated news feed
+    </div>
+  </body>
+</html>
