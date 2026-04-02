@@ -1,339 +1,567 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claude News Feed</title>
+    <title>Claude News</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
-        font-family:
-          "Segoe UI",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        background: #0f0f1a;
-        color: #e0e0e0;
-        min-height: 100vh;
-        padding: 2rem;
+        font-family: "Source Serif 4", Georgia, serif;
+        background: #fff;
+        color: #121212;
       }
-      .header {
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(135deg, #d4a574, #c084fc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .updated {
-        color: #666;
-        font-size: 0.85rem;
-      }
-      .news-grid {
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .news-card {
-        background: #1a1a2e;
-        border-radius: 16px;
-        padding: 1.5rem;
-        border: 1px solid #2a2a4a;
-        transition: border-color 0.3s;
-      }
-      .news-card:hover {
-        border-color: #c084fc;
-      }
-      .news-card.breaking {
-        border-left: 4px solid #f87171;
-      }
-      .news-card.update {
-        border-left: 4px solid #4ade80;
-      }
-      .news-card.business {
-        border-left: 4px solid #60a5fa;
-      }
-      .card-header {
+
+      /* TOP BAR */
+      .top-bar {
+        border-bottom: 1px solid #e2e2e2;
+        padding: 0.4rem 1.5rem;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 0.75rem;
-        gap: 1rem;
-      }
-      .card-title {
-        font-size: 1.15rem;
-        font-weight: 600;
-        color: #fff;
-      }
-      .card-title a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .card-title a:hover {
-        color: #c084fc;
-      }
-      .card-tag {
+        align-items: center;
         font-size: 0.7rem;
-        padding: 0.25rem 0.6rem;
-        border-radius: 20px;
-        white-space: nowrap;
-        font-weight: 600;
+        color: #666;
+        font-family: Arial, sans-serif;
       }
-      .tag-breaking {
-        background: rgba(248, 113, 113, 0.2);
-        color: #f87171;
-      }
-      .tag-update {
-        background: rgba(74, 222, 128, 0.2);
-        color: #4ade80;
-      }
-      .tag-business {
-        background: rgba(96, 165, 250, 0.2);
-        color: #60a5fa;
-      }
-      .card-meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 0.75rem;
-        font-size: 0.8rem;
-        color: #888;
-      }
-      .card-summary {
-        font-size: 0.92rem;
-        line-height: 1.6;
-        color: #bbb;
-      }
-      .card-source {
-        margin-top: 0.75rem;
-        font-size: 0.8rem;
-      }
-      .card-source a {
-        color: #c084fc;
+      .top-bar a {
+        color: #666;
         text-decoration: none;
       }
-      .card-source a:hover {
+      .top-bar a:hover {
         text-decoration: underline;
       }
-      .footer {
+
+      /* HEADER */
+      .header {
         text-align: center;
-        margin-top: 3rem;
-        color: #444;
-        font-size: 0.75rem;
+        padding: 1rem 1.5rem 0.5rem;
+        border-bottom: 3px solid #121212;
       }
+      .masthead {
+        font-family: "UnifrakturMaguntia", cursive;
+        font-size: 3.5rem;
+        color: #121212;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        letter-spacing: -1px;
+      }
+      .header-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.4rem 0;
+        border-top: 1px solid #e2e2e2;
+        border-bottom: 1px solid #e2e2e2;
+        font-size: 0.72rem;
+        font-family: Arial, sans-serif;
+        color: #666;
+      }
+      .header-meta .edition {
+        font-weight: bold;
+        color: #121212;
+      }
+
+      /* NAV */
+      nav {
+        border-bottom: 1px solid #e2e2e2;
+        padding: 0.5rem 1.5rem;
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      nav a {
+        font-family: Arial, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #121212;
+        text-decoration: none;
+        white-space: nowrap;
+        padding-bottom: 0.4rem;
+      }
+      nav a:hover {
+        border-bottom: 2px solid #121212;
+      }
+      nav a.active {
+        border-bottom: 2px solid #121212;
+      }
+
+      /* LAYOUT */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      /* MAIN GRID */
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr 1px 1fr;
+        gap: 0;
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .divider {
+        background: #e2e2e2;
+        margin: 0 1.25rem;
+      }
+
+      /* LEAD STORY */
+      .lead-story {
+        padding-right: 1.25rem;
+      }
+      .lead-story .kicker {
+        font-family: Arial, sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 0.4rem;
+      }
+      .lead-story .headline {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1.85rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.6rem;
+        color: #121212;
+      }
+      .lead-story .headline a {
+        color: #121212;
+        text-decoration: none;
+      }
+      .lead-story .headline a:hover {
+        text-decoration: underline;
+      }
+      .lead-story .summary {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+      .lead-story .byline {
+        font-family: Arial, sans-serif;
+        font-size: 0.68rem;
+        color: #666;
+      }
+      .lead-label {
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.15rem 0.45rem;
+        border-radius: 2px;
+        margin-bottom: 0.5rem;
+      }
+      .label-breaking {
+        background: #d0021b;
+        color: #fff;
+      }
+      .label-update {
+        background: #326891;
+        color: #fff;
+      }
+      .label-business {
+        background: #326891;
+        color: #fff;
+      }
+
+      /* SECONDARY STORIES */
+      .secondary-col {
+        padding: 0 1.25rem;
+      }
+      .story-item {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #e2e2e2;
+      }
+      .story-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .story-item .kicker {
+        font-family: Arial, sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 0.3rem;
+      }
+      .story-item .headline {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 0.35rem;
+      }
+      .story-item .headline a {
+        color: #121212;
+        text-decoration: none;
+      }
+      .story-item .headline a:hover {
+        text-decoration: underline;
+      }
+      .story-item .summary {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: #444;
+      }
+      .story-item .byline {
+        font-family: Arial, sans-serif;
+        font-size: 0.62rem;
+        color: #888;
+        margin-top: 0.3rem;
+      }
+
+      /* SECTION RULE */
+      .section-rule {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 1.5rem 0 1rem;
+      }
+      .section-rule .section-name {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #121212;
+        white-space: nowrap;
+      }
+      .section-rule .rule {
+        flex: 1;
+        height: 1px;
+        background: #e2e2e2;
+      }
+
+      /* BOTTOM GRID */
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border-top: 3px double #121212;
+        padding-top: 1.25rem;
+      }
+      .bottom-story {
+        padding: 0 1.25rem;
+        border-right: 1px solid #e2e2e2;
+      }
+      .bottom-story:first-child {
+        padding-left: 0;
+      }
+      .bottom-story:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+      .bottom-story .kicker {
+        font-family: Arial, sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #666;
+        margin-bottom: 0.3rem;
+      }
+      .bottom-story .headline {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.35rem;
+      }
+      .bottom-story .headline a {
+        color: #121212;
+        text-decoration: none;
+      }
+      .bottom-story .headline a:hover {
+        text-decoration: underline;
+      }
+      .bottom-story .summary {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        color: #444;
+      }
+
+      /* FOOTER */
+      footer {
+        border-top: 3px solid #121212;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        color: #888;
+      }
+      footer a {
+        color: #326891;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+
       @media (max-width: 768px) {
-        body {
-          padding: 1rem;
+        .main-grid {
+          grid-template-columns: 1fr;
         }
-        h1 {
-          font-size: 1.5rem;
+        .divider {
+          display: none;
+        }
+        .lead-story {
+          padding-right: 0;
+          padding-bottom: 1.25rem;
+          border-bottom: 1px solid #e2e2e2;
+          margin-bottom: 1.25rem;
+        }
+        .secondary-col {
+          padding: 0;
+        }
+        .bottom-grid {
+          grid-template-columns: 1fr;
+        }
+        .bottom-story {
+          padding: 0 0 1.25rem;
+          border-right: none;
+          border-bottom: 1px solid #e2e2e2;
+          margin-bottom: 1.25rem;
+        }
+        .masthead {
+          font-size: 2.5rem;
         }
       }
     </style>
   </head>
   <body>
-    <div class="header">
-      <h1>Claude &amp; Anthropic News Feed</h1>
-      <p class="updated">Last updated: 2026-04-02 06:15 UTC</p>
+    <div class="top-bar">
+      <span>Thursday, April 2, 2026</span>
+      <span>Updated: 2026-04-02 06:15 UTC</span>
+      <span>Powered by <a href="https://claude.ai">Claude Agent</a></span>
     </div>
 
-    <div class="news-grid">
-      <div class="news-card breaking">
-        <div class="card-header">
-          <div class="card-title">
+    <header class="header">
+      <div class="masthead">Claude News</div>
+      <div class="header-meta">
+        <span>Vol. 1 &nbsp;&bull;&nbsp; No. 1</span>
+        <span class="edition">The Anthropic Intelligence Report</span>
+        <span>Late Edition</span>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#" class="active">Top Stories</a>
+      <a href="#">Technology</a>
+      <a href="#">Business</a>
+      <a href="#">Science</a>
+      <a href="#">Legal</a>
+      <a href="#">Product Updates</a>
+    </nav>
+
+    <div class="container">
+      <!-- MAIN GRID -->
+      <div class="main-grid">
+        <!-- LEAD STORY -->
+        <div class="lead-story">
+          <div class="kicker">Artificial Intelligence</div>
+          <span class="lead-label label-breaking">Breaking News</span>
+          <div class="headline">
             <a
               href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code"
               target="_blank"
-              >Anthropic Rushes to Limit Leak of Claude Code Source Code</a
             >
+              Anthropic Rushes to Contain Leak of Claude Code Source Code
+            </a>
           </div>
-          <span class="card-tag tag-breaking">BREAKING</span>
+          <div class="summary">
+            A large source-map file slipped into version 2.1.88 of the
+            @anthropic-ai/claude-code npm package, exposing approximately 1,900
+            files and 512,000 lines of internal source code. Security researcher
+            Chaofan Shou flagged the exposure on X. Anthropic stated no customer
+            data was involved and attributed the incident to "process errors" in
+            its rapid release cycle.
+          </div>
+          <div class="byline">
+            By Bloomberg &nbsp;&bull;&nbsp; April 1, 2026
+          </div>
         </div>
-        <div class="card-meta">
-          <span>Bloomberg</span>
-          <span>2026-04-01 18:00 UTC</span>
+
+        <div class="divider"></div>
+
+        <!-- SECONDARY COL 1 -->
+        <div class="secondary-col">
+          <div class="story-item">
+            <div class="kicker">A.I. Models</div>
+            <span
+              class="lead-label label-breaking"
+              style="
+                font-size: 0.55rem;
+                padding: 0.1rem 0.35rem;
+                margin-bottom: 0.4rem;
+                display: inline-block;
+              "
+              >Breaking</span
+            >
+            <div class="headline">
+              <a
+                href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+                target="_blank"
+              >
+                Anthropic's Secret 'Mythos' Model Revealed in Data Leak
+              </a>
+            </div>
+            <div class="summary">
+              Anthropic is testing a new model it says poses unprecedented
+              cybersecurity risks, calling it "currently far ahead of any other
+              AI model in cyber capabilities."
+            </div>
+            <div class="byline">Fortune &nbsp;&bull;&nbsp; March 26, 2026</div>
+          </div>
+
+          <div class="story-item">
+            <div class="kicker">Finance</div>
+            <div class="headline">
+              <a
+                href="https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october"
+                target="_blank"
+              >
+                Anthropic Weighs $60 Billion I.P.O. as Soon as October
+              </a>
+            </div>
+            <div class="summary">
+              The company is racing rival OpenAI to go public. Bankers expect it
+              to raise more than $60 billion, potentially the second-biggest
+              I.P.O. in history after SpaceX.
+            </div>
+            <div class="byline">
+              Bloomberg &nbsp;&bull;&nbsp; March 27, 2026
+            </div>
+          </div>
         </div>
-        <div class="card-summary">
-          A large source-map file slipped into version 2.1.88 of the
-          @anthropic-ai/claude-code npm package, exposing approximately 1,900
-          files and 512,000 lines of internal source code. Security researcher
-          Chaofan Shou spotted the file and flagged it on X. Anthropic stated no
-          customer data was exposed and blamed "process errors" in their fast
-          release cycle.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
+
+        <div class="divider"></div>
+
+        <!-- SECONDARY COL 2 -->
+        <div class="secondary-col">
+          <div class="story-item">
+            <div class="kicker">Law & Policy</div>
+            <div class="headline">
+              <a
+                href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban"
+                target="_blank"
+              >
+                Judge Temporarily Blocks Administration's Anthropic Supply Chain
+                Ban
+              </a>
+            </div>
+            <div class="summary">
+              A federal judge blocked the U.S. government's designation of
+              Anthropic as a supply chain risk, a label the company warned could
+              cost it billions in lost revenue.
+            </div>
+            <div class="byline">NPR &nbsp;&bull;&nbsp; March 26, 2026</div>
+          </div>
+
+          <div class="story-item">
+            <div class="kicker">Revenue</div>
+            <div class="headline">
+              <a
+                href="https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html"
+                target="_blank"
+              >
+                Anthropic's Sales Double to $19 Billion, Closing Gap With OpenAI
+              </a>
+            </div>
+            <div class="summary">
+              Driven by its automated coding tools, Anthropic more than doubled
+              its annualized revenue to $19 billion in the first two months of
+              2026.
+            </div>
+            <div class="byline">
+              Yahoo Finance &nbsp;&bull;&nbsp; April 1, 2026
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="news-card breaking">
-        <div class="card-header">
-          <div class="card-title">
-            <a
-              href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
-              target="_blank"
-              >Anthropic's Secret 'Mythos' Model Revealed in Data Leak</a
-            >
-          </div>
-          <span class="card-tag tag-breaking">BREAKING</span>
-        </div>
-        <div class="card-meta">
-          <span>Fortune</span>
-          <span>2026-03-26 14:00 UTC</span>
-        </div>
-        <div class="card-summary">
-          Anthropic has begun testing a new AI model called Claude Mythos with
-          early access customers. The company believes it poses unprecedented
-          cybersecurity risks, calling it "currently far ahead of any other AI
-          model in cyber capabilities" and warning it could exploit
-          vulnerabilities faster than defenders can patch them.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
-        </div>
+      <!-- PRODUCT UPDATES SECTION -->
+      <div class="section-rule">
+        <span class="section-name">Product Updates</span>
+        <div class="rule"></div>
       </div>
 
-      <div class="news-card business">
-        <div class="card-header">
-          <div class="card-title">
-            <a
-              href="https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october"
-              target="_blank"
-              >Anthropic Eyes $60 Billion IPO as Soon as October 2026</a
-            >
-          </div>
-          <span class="card-tag tag-business">BUSINESS</span>
-        </div>
-        <div class="card-meta">
-          <span>Bloomberg</span>
-          <span>2026-03-27 12:00 UTC</span>
-        </div>
-        <div class="card-summary">
-          Anthropic is considering going public as soon as October 2026, racing
-          rival OpenAI to hold an IPO. Bankers expect the company to raise more
-          than $60 billion, potentially making it the second-biggest IPO deal in
-          history after SpaceX. Revenue has doubled to $19B annualized in early
-          2026.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
-        </div>
-      </div>
-
-      <div class="news-card business">
-        <div class="card-header">
-          <div class="card-title">
-            <a
-              href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban"
-              target="_blank"
-              >Judge Temporarily Blocks Trump Administration's Anthropic Ban</a
-            >
-          </div>
-          <span class="card-tag tag-business">LEGAL</span>
-        </div>
-        <div class="card-meta">
-          <span>NPR</span>
-          <span>2026-03-26 10:00 UTC</span>
-        </div>
-        <div class="card-summary">
-          A federal judge has temporarily blocked the U.S. government's
-          designation of Anthropic as a supply chain risk. The company has
-          warned that the labeling could cost it billions in lost revenue and is
-          fighting the designation in court.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
-        </div>
-      </div>
-
-      <div class="news-card update">
-        <div class="card-header">
-          <div class="card-title">
+      <div class="bottom-grid">
+        <div class="bottom-story">
+          <div class="kicker">Claude Code</div>
+          <div class="headline">
             <a
               href="https://www.geeky-gadgets.com/claude-code-channels/"
               target="_blank"
-              >Claude Code March 2026: Multi-Agent, Computer Use & 1M Context</a
             >
+              Claude Code Gains Computer Use, 1-Million-Token Context Window
+            </a>
           </div>
-          <span class="card-tag tag-update">UPDATE</span>
+          <div class="summary">
+            The March update adds Computer Use for controlling Mac apps without
+            A.P.I.s, a 1M-token context window, 128k max output tokens for Opus
+            and Sonnet, named subagents, and PowerShell support for Windows.
+          </div>
         </div>
-        <div class="card-meta">
-          <span>Geeky Gadgets</span>
-          <span>2026-03-17 09:00 UTC</span>
-        </div>
-        <div class="card-summary">
-          Claude Code's latest update brings Computer Use for controlling Mac
-          apps without APIs, a 1M-token context window for large projects, 128k
-          max output tokens for Opus/Sonnet, named subagents, alt-screen
-          rendering, and PowerShell support for Windows.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://www.geeky-gadgets.com/claude-code-channels/"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
-        </div>
-      </div>
 
-      <div class="news-card update">
-        <div class="card-header">
-          <div class="card-title">
+        <div class="bottom-story">
+          <div class="kicker">Infrastructure</div>
+          <div class="headline">
             <a
-              href="https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html"
+              href="https://releasebot.io/updates/anthropic/claude-code"
               target="_blank"
-              >Anthropic Revenue Doubles to $19B Annualized, Closing Gap with
-              OpenAI</a
             >
+              Claude Code 2.1.88 Raises Output Token Limits to 128,000
+            </a>
           </div>
-          <span class="card-tag tag-update">REVENUE</span>
+          <div class="summary">
+            The latest release increases default maximum output token limits for
+            Claude Opus 4.6 to 64k tokens and raises the upper bound for Opus
+            4.6 and Sonnet 4.6 to 128k tokens.
+          </div>
         </div>
-        <div class="card-meta">
-          <span>Yahoo Finance</span>
-          <span>2026-04-01 14:42 UTC</span>
-        </div>
-        <div class="card-summary">
-          Thanks to the strength of its automated coding tools, Anthropic more
-          than doubled its annualized sales to $19 billion during the first two
-          months of 2026, closing the revenue gap with larger rival OpenAI
-          significantly.
-        </div>
-        <div class="card-source">
-          <a
-            href="https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html"
-            target="_blank"
-            >Read full article &rarr;</a
-          >
+
+        <div class="bottom-story">
+          <div class="kicker">International</div>
+          <div class="headline">
+            <a href="https://www.anthropic.com/news" target="_blank">
+              Anthropic Signs Partnership With Australia on A.I. Safety
+            </a>
+          </div>
+          <div class="summary">
+            On a positive note amid legal and security challenges, Anthropic
+            announced a partnership with Australia to enhance A.I. safety
+            research and track economic impacts of artificial intelligence.
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="footer">
-      Powered by Claude Code Agent &bull; Auto-updated news feed
-    </div>
+    <footer>
+      <p>
+        &#169; 2026 Claude News &nbsp;&bull;&nbsp; Powered by
+        <a href="https://claude.ai">Claude Code Agent</a> &nbsp;&bull;&nbsp;
+        Auto-updated hourly on weekdays
+      </p>
+    </footer>
   </body>
 </html>
