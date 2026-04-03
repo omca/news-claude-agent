@@ -1,136 +1,51 @@
-/**
- * @file news.json
- * @description News data feed for Claude News aggregator
- * @author Claude Agent
- * @date 2026-04-03
- */
-
 {
   "date": "Friday, April 3, 2026",
-  "updatedAt": "2026-04-03 06:30 UTC",
-  "sections": [
+  "updatedAt": "2026-04-03 14:30 UTC",
+  "stories": [
     {
-      "id": "top-stories",
-      "label": null,
-      "layout": "main-grid",
-      "lead": {
-        "kicker": "Law & Policy",
-        "label": "Breaking News",
-        "headline": "Trump Administration Appeals Court Ruling Blocking Anthropic–Pentagon Ban",
-        "url": "https://www.axios.com/2026/04/02/trump-administration-appeals-anthropic-pentagon",
-        "summary": "Government lawyers for the Justice Department filed a notice of appeal to the U.S. Court of Appeals for the Ninth Circuit on behalf of the Pentagon, escalating a months-long standoff. Anthropic and the Defense Department have been at odds since a deal for the government to use Claude collapsed over the company's red lines for its technology. The appeal follows a lower-court ruling that had temporarily blocked the administration's attempt to designate Anthropic a supply-chain risk.",
-        "byline": "Axios · April 2, 2026"
-      },
-      "col1": [
-        {
-          "kicker": "Security & Privacy",
-          "label": null,
-          "headline": "Congressman Gottheimer Presses Anthropic Over Source Code Leaks and Safety Protocols",
-          "url": "https://www.axios.com/2026/04/02/gottheimer-anthropic-source-code-leaks",
-          "summary": "Rep. Josh Gottheimer, a leading House Democrat on A.I. and cybersecurity, sent a formal letter to Anthropic demanding answers after internal source code powering Claude Code leaked for the second time in over a year. Gottheimer cited national-security concerns about the exposure of proprietary model internals and called for a detailed briefing on the company's security posture.",
-          "byline": "Axios · April 2, 2026"
-        },
-        {
-          "kicker": "Finance",
-          "label": null,
-          "headline": "OpenAI Share Demand Drops on Secondary Market as Anthropic Gains Investor Interest",
-          "url": "https://www.bloomberg.com/news/articles/2026-04-01/openai-demand-sinks-on-secondary-market-as-anthropic-runs-hot",
-          "summary": "Demand for OpenAI shares on secondary markets has cooled while investor enthusiasm for Anthropic has surged, according to Bloomberg. The shift tracks Anthropic's meteoric revenue growth — from $9 billion annualised at year-end 2025 to $19 billion by March 2026 — driven largely by Claude Code adoption far outpacing internal projections.",
-          "byline": "Bloomberg · April 1, 2026"
-        }
-      ],
-      "col2": [
-        {
-          "kicker": "Privacy",
-          "label": null,
-          "headline": "Leaked Code Shows Claude Code Monitors User Frustration, Raising Privacy Questions",
-          "url": "https://www.scientificamerican.com/article/anthropic-leak-reveals-claude-code-tracking-user-frustration-and-raises-new/",
-          "summary": "Among the 512,000 lines of source code accidentally exposed in the Claude Code npm package, researchers found routines that scan user prompts for signs of frustration — flagging profanity, insults, and phrases such as \"so frustrating\" and \"this sucks.\" The discovery has re-ignited debate about the extent of behavioural telemetry A.I. coding assistants collect from developers.",
-          "byline": "Scientific American · April 1, 2026"
-        },
-        {
-          "kicker": "Industry",
-          "label": null,
-          "headline": "Anthropic Is Having a Month: Leaked Code, Soaring Revenue, and an I.P.O. on the Horizon",
-          "url": "https://techcrunch.com/2026/03/31/anthropic-is-having-a-month/",
-          "summary": "TechCrunch rounds up a whirlwind March for Anthropic: the company more than doubled annualised revenue to $19 billion, began IPO conversations targeting a $60 billion-plus raise, saw internal model \"Mythos\" leak, and then capped it all with the accidental release of Claude Code's source code. Analysts say the turbulence underscores the tension between Anthropic's breakneck growth pace and its safety-first brand identity.",
-          "byline": "TechCrunch · March 31, 2026"
-        }
-      ]
+      "rank": 1,
+      "kicker": "Security",
+      "headline": "Anthropic Accidentally Releases Source Code for Claude AI Agent",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent",
+      "summary": "Anthropic accidentally released approximately 512,000 lines of internal source code — roughly 1,900 files — from its Claude Code assistant via a leaked npm package source map. The leak revealed that Claude Code contains routines that scan user prompts for signs of frustration, raising significant privacy and trust concerns. Fortune also reported that Anthropic had been storing thousands of internal files, including a draft blog post about an upcoming model codenamed 'Mythos', on a publicly accessible system.",
+      "source": "Bloomberg",
+      "date": "Apr 1, 2026"
     },
     {
-      "id": "yesterday",
-      "label": "Yesterday's Top Stories",
-      "layout": "main-grid",
-      "lead": {
-        "kicker": "Artificial Intelligence",
-        "label": "Breaking News",
-        "headline": "Anthropic Rushes to Contain Leak of Claude Code Source Code",
-        "url": "https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code",
-        "summary": "A large source-map file slipped into version 2.1.88 of the @anthropic-ai/claude-code npm package, exposing approximately 1,900 files and 512,000 lines of internal source code. Security researcher Chaofan Shou flagged the exposure on X. Anthropic stated no customer data was involved and attributed the incident to \"process errors\" in its rapid release cycle.",
-        "byline": "Bloomberg · April 1, 2026"
-      },
-      "col1": [
-        {
-          "kicker": "A.I. Models",
-          "label": "Breaking",
-          "headline": "Anthropic's Secret 'Mythos' Model Revealed in Data Leak",
-          "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/",
-          "summary": "Anthropic is testing a new model it says poses unprecedented cybersecurity risks, calling it \"currently far ahead of any other AI model in cyber capabilities.\"",
-          "byline": "Fortune · March 26, 2026"
-        },
-        {
-          "kicker": "Finance",
-          "label": null,
-          "headline": "Anthropic Weighs $60 Billion I.P.O. as Soon as October",
-          "url": "https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october",
-          "summary": "The company is racing rival OpenAI to go public. Bankers expect it to raise more than $60 billion, potentially the second-biggest I.P.O. in history after SpaceX.",
-          "byline": "Bloomberg · March 27, 2026"
-        }
-      ],
-      "col2": [
-        {
-          "kicker": "Law & Policy",
-          "label": null,
-          "headline": "Judge Temporarily Blocks Administration's Anthropic Supply Chain Ban",
-          "url": "https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban",
-          "summary": "A federal judge blocked the U.S. government's designation of Anthropic as a supply chain risk, a label the company warned could cost it billions in lost revenue.",
-          "byline": "NPR · March 26, 2026"
-        },
-        {
-          "kicker": "Revenue",
-          "label": null,
-          "headline": "Anthropic's Sales Double to $19 Billion, Closing Gap With OpenAI",
-          "url": "https://finance.yahoo.com/news/live/tech-stocks-today-anthropic-announces-new-claude-capability-nvidias-jensen-huang-says-agi-era-is-here-144220360.html",
-          "summary": "Driven by its automated coding tools, Anthropic more than doubled its annualized revenue to $19 billion in the first two months of 2026.",
-          "byline": "Yahoo Finance · April 1, 2026"
-        }
-      ]
+      "rank": 2,
+      "kicker": "Policy",
+      "headline": "DOJ Appeals to Restore Anthropic Ban as Government Vendors Face Uncertainty",
+      "url": "https://www.pymnts.com/legal/2026/doj-appeals-to-restore-anthropic-ban/",
+      "summary": "The Trump administration attempted to ban Anthropic's AI from federal government use after the Pentagon declared Anthropic a supply chain risk when the company refused to allow its products to be used for surveillance of Americans or in lethal autonomous warfare. A federal judge blocked the ban on March 26, but the DOJ filed an appeal to restore it. Government vendors and agencies are now navigating significant uncertainty about whether they can continue using Claude-based tools.",
+      "source": "PYMNTS.com",
+      "date": "Apr 2, 2026"
     },
     {
-      "id": "product-updates",
-      "label": "Product Updates",
-      "layout": "bottom-grid",
-      "items": [
-        {
-          "kicker": "Claude Code",
-          "headline": "Claude Code Gains Computer Use, 1-Million-Token Context Window",
-          "url": "https://www.geeky-gadgets.com/claude-code-channels/",
-          "summary": "The March update adds Computer Use for controlling Mac apps without A.P.I.s, a 1M-token context window, 128k max output tokens for Opus and Sonnet, named subagents, and PowerShell support for Windows."
-        },
-        {
-          "kicker": "Infrastructure",
-          "headline": "Claude Code 2.1.88 Raises Output Token Limits to 128,000",
-          "url": "https://releasebot.io/updates/anthropic/claude-code",
-          "summary": "The latest release increases default maximum output token limits for Claude Opus 4.6 to 64k tokens and raises the upper bound for Opus 4.6 and Sonnet 4.6 to 128k tokens."
-        },
-        {
-          "kicker": "International",
-          "headline": "Anthropic Signs Partnership With Australia on A.I. Safety",
-          "url": "https://www.anthropic.com/news",
-          "summary": "On a positive note amid legal and security challenges, Anthropic announced a partnership with Australia to enhance A.I. safety research and track economic impacts of artificial intelligence."
-        }
-      ]
+      "rank": 3,
+      "kicker": "Business",
+      "headline": "Claude AI Maker Anthropic Considers IPO as Soon as October, Eyes $60B+ Raise",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october",
+      "summary": "Anthropic executives have begun early discussions with Wall Street banks about a potential initial public offering as soon as Q4 2026. Bankers expect the company to raise more than $60 billion in its IPO, which would rank among the largest tech listings in history. This comes alongside surging revenue momentum — Anthropic more than doubled its annualized revenue to $19 billion by March 2026, driven largely by Claude Code adoption.",
+      "source": "Bloomberg",
+      "date": "Mar 27, 2026"
+    },
+    {
+      "rank": 4,
+      "kicker": "Benchmarks",
+      "headline": "Claude Dethroning ChatGPT and Gemini as Top AI in 2026 Benchmarks",
+      "url": "https://themarketperiodical.com/2026/04/02/ai-news-why-is-claude-dethroning-chatgpt-gemini-as-the-best-ai/",
+      "summary": "Claude has outperformed ChatGPT and Google Gemini across a rigorous 2026 benchmark gauntlet, signaling a major shift in AI industry standing. On prediction market Kalshi, traders placed 54% odds on Claude becoming the best AI overall, compared to 10.9% for ChatGPT and 24.9% for Gemini. The results are attributed to Claude's strength in grounded, high-precision reasoning and its Sonnet 4.6 and Opus 4.6 model releases.",
+      "source": "The Market Periodical",
+      "date": "Apr 2, 2026"
+    },
+    {
+      "rank": 5,
+      "kicker": "Product",
+      "headline": "Claude Code Gets Major Feature Wave: Computer Use, Remote Sessions, and 128k Output",
+      "url": "https://www.builder.io/blog/claude-code-updates",
+      "summary": "Claude Code received a substantial wave of new capabilities in March and April 2026, including computer use for agentic tasks, auto mode, and remote cloud sessions that can follow PRs and fix CI failures. The latest release also raises maximum output token limits to 128,000 for Opus 4.6 and Sonnet 4.6, adds PowerShell support on Windows, and introduces new hook events and an interactive '/powerup' tutorial system. These updates position Claude Code as a rapidly maturing autonomous coding agent.",
+      "source": "Builder.io",
+      "date": "Apr 2, 2026"
     }
   ]
 }
