@@ -74,152 +74,40 @@ Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
 ### 3A. Create `index.html`
 
-```html
-<!--
-  @file index.html
-  @description Claude News website
-  @author YOUR_NAME
-  @date 2026-04-03
--->
+Copy the template from: **[resources/index.html](resources/index.html)**
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claude News</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="top-bar">
-      <span>Loading...</span>
-      <span>Updated: --</span>
-      <span>Powered by <a href="https://claude.ai">Claude Agent</a></span>
-    </div>
+Or create manually with this structure:
 
-    <header class="header">
-      <div class="masthead">Claude News</div>
-      <div class="header-meta">
-        <span>Vol. 1 &nbsp;&bull;&nbsp; No. 1</span>
-        <span class="edition">The Anthropic Intelligence Report</span>
-        <span>Late Edition</span>
-      </div>
-    </header>
-
-    <nav>
-      <a href="#" class="active">Top Stories</a>
-      <a href="#">Technology</a>
-      <a href="#">Business</a>
-      <a href="#">Science</a>
-      <a href="#">Legal</a>
-      <a href="#">Product Updates</a>
-    </nav>
-
-    <div class="container" id="news-container">
-      <!-- News content loaded by main.js -->
-    </div>
-
-    <footer>
-      <p>
-        &#169; 2026 Claude News &nbsp;&bull;&nbsp; Powered by
-        <a href="https://claude.ai">Claude Code Agent</a> &nbsp;&bull;&nbsp;
-        Auto-updated daily on weekdays
-      </p>
-    </footer>
-    <script src="js/main.js"></script>
-  </body>
-</html>
-```
+- Header with masthead "Claude News"
+- Navigation bar with links
+- Empty `<div id="news-container">` (JavaScript fills this)
+- Footer with copyright
+- Links to `css/styles.css` and `js/main.js`
 
 ### 3B. Create `css/styles.css`
 
-Use the styles from the repository (see main README for full content). Key classes:
+Copy the full stylesheet from: **[resources/styles.css](resources/styles.css)**
 
-- `.top-bar` — header with date
-- `.header` / `.masthead` — NYT-style title
-- `.main-grid` — 3-column layout
-- `.lead-story` — large prominent story
-- `.story-item` — secondary stories
-- `.divider` — visual column separator
+Key classes included:
+
+- `.top-bar` — header with date and updates
+- `.header` / `.masthead` — NYT-style title with serif font
+- `.main-grid` — 3-column CSS Grid layout
+- `.lead-story` — large prominent story (left column)
+- `.story-item` — secondary stories (middle and right columns)
+- `.divider` — visual column separators
+- Responsive design with mobile breakpoint at 768px
 
 ### 3C. Create `js/main.js`
 
-```javascript
-/**
- * @file main.js
- * @description Renders top 5 Claude news stories from data/news.json
- * @author YOUR_NAME
- * @date 2026-04-03
- */
+Copy the complete script from: **[resources/main.js](resources/main.js)**
 
-const renderLeadStory = (story) => {
-  return `
-    <div class="lead-story">
-      <div class="kicker">${story.kicker}</div>
-      <span class="lead-label label-breaking">Top Story</span>
-      <div class="headline">
-        <a href="${story.url}" target="_blank">${story.headline}</a>
-      </div>
-      <div class="summary">${story.summary}</div>
-      <div class="byline">By ${story.source} &nbsp;&bull;&nbsp; ${story.date}</div>
-    </div>
-  `;
-};
+Main functions:
 
-const renderSecondaryStory = (story) => {
-  return `
-    <div class="story-item">
-      <div class="kicker">${story.kicker}</div>
-      <div class="headline">
-        <a href="${story.url}" target="_blank">${story.headline}</a>
-      </div>
-      <div class="summary">${story.summary}</div>
-      <div class="byline">${story.source} &nbsp;&bull;&nbsp; ${story.date}</div>
-    </div>
-  `;
-};
-
-const renderNews = (data) => {
-  const topBar = document.querySelector(".top-bar");
-  if (topBar) {
-    topBar.innerHTML = `
-      <span>${data.date}</span>
-      <span>Updated: ${data.updatedAt}</span>
-      <span>Powered by <a href="https://claude.ai">Claude Agent</a></span>
-    `;
-  }
-
-  const container = document.querySelector("#news-container");
-  if (container && data.stories && data.stories.length >= 5) {
-    const stories = data.stories;
-    const html = `
-      <div class="main-grid">
-        ${renderLeadStory(stories[0])}
-        <div class="divider"></div>
-        <div class="secondary-col">
-          ${renderSecondaryStory(stories[1])}
-          ${renderSecondaryStory(stories[2])}
-        </div>
-        <div class="divider"></div>
-        <div class="secondary-col">
-          ${renderSecondaryStory(stories[3])}
-          ${renderSecondaryStory(stories[4])}
-        </div>
-      </div>
-    `;
-    container.innerHTML = html;
-  }
-};
-
-fetch("data/news.json")
-  .then((res) => res.json())
-  .then((data) => renderNews(data))
-  .catch((err) => console.error("Error loading news:", err));
-```
+- `renderLeadStory(story)` — Renders rank 1 story with "Top Story" label
+- `renderSecondaryStory(story)` — Renders stories 2-5 in secondary columns
+- `renderNews(data)` — Orchestrates layout distribution and updates top bar
+- `fetch("data/news.json")` — Loads and renders news on page load
 
 ### 3D. Create `data/news.json`
 
