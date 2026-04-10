@@ -1,49 +1,49 @@
 {
-  "date": "Thursday, April 3, 2026",
-  "updatedAt": "2026-04-03 15:50 UTC",
+  "date": "Thursday, April 10, 2026",
+  "updatedAt": "2026-04-10 22:15 UTC",
   "stories": [
     {
       "rank": 1,
-      "kicker": "Security",
-      "headline": "Anthropic Accidentally Releases Source Code for Claude AI Agent",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent",
-      "summary": "Anthropic accidentally released approximately 512,000 lines of internal source code — roughly 1,900 files — from its Claude Code assistant via a leaked npm package source map. The leak revealed that Claude Code contains routines that scan user prompts for signs of frustration, raising significant privacy and trust concerns. Fortune also reported that Anthropic had been storing thousands of internal files, including a draft blog post about an upcoming model codenamed 'Mythos', on a publicly accessible system.",
+      "kicker": "Infrastructure",
+      "headline": "Anthropic Secures Major Computing Capacity from CoreWeave to Power Claude Expansion",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-10/anthropic-agrees-to-rent-coreweave-ai-capacity-to-power-claude",
+      "summary": "Anthropic has agreed to a multiyear deal with CoreWeave Inc. to access significant data center capacity for Claude AI services. The partnership provides access to multiple Nvidia chip architectures across US data centers, helping Anthropic meet surging demand and supporting continued expansion of its AI infrastructure.",
       "source": "Bloomberg",
-      "date": "Apr 1, 2026"
+      "date": "Apr 10, 2026"
     },
     {
       "rank": 2,
-      "kicker": "Policy",
-      "headline": "DOJ Appeals to Restore Anthropic Ban as Government Vendors Face Uncertainty",
-      "url": "https://www.pymnts.com/legal/2026/doj-appeals-to-restore-anthropic-ban/",
-      "summary": "The Trump administration attempted to ban Anthropic's AI from federal government use after the Pentagon declared Anthropic a supply chain risk when the company refused to allow its products to be used for surveillance of Americans or in lethal autonomous warfare. A federal judge blocked the ban on March 26, but the DOJ filed an appeal to restore it. Government vendors and agencies are now navigating significant uncertainty about whether they can continue using Claude-based tools.",
-      "source": "PYMNTS.com",
-      "date": "Apr 2, 2026"
+      "kicker": "Security",
+      "headline": "Claude Mythos Preview Discovers Thousands of Zero-Day Vulnerabilities Across Major Systems",
+      "url": "https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html",
+      "summary": "Anthropic's Claude Mythos Preview model, released as part of Project Glasswing, has identified thousands of zero-day vulnerabilities across major operating systems and web browsers that survived decades of human review. The breakthrough model is being shared with over 50 tech organizations with $100 million in usage credits to advance cybersecurity capabilities.",
+      "source": "The Hacker News",
+      "date": "Apr 10, 2026"
     },
     {
       "rank": 3,
-      "kicker": "Business",
-      "headline": "Claude AI Maker Anthropic Considers IPO as Soon as October, Eyes $60B+ Raise",
-      "url": "https://www.bloomberg.com/news/articles/2026-03-27/claude-ai-maker-anthropic-said-to-weigh-ipo-as-soon-as-october",
-      "summary": "Anthropic executives have begun early discussions with Wall Street banks about a potential initial public offering as soon as Q4 2026. Bankers expect the company to raise more than $60 billion in its IPO, which would rank among the largest tech listings in history. This comes alongside surging revenue momentum — Anthropic more than doubled its annualized revenue to $19 billion by March 2026, driven largely by Claude Code adoption.",
-      "source": "Bloomberg",
-      "date": "Mar 27, 2026"
+      "kicker": "Product",
+      "headline": "Claude Managed Agents Enter Public Beta with Enterprise Sandbox and Tool Integration",
+      "url": "https://9to5mac.com/2026/04/09/anthropic-scales-up-with-enterprise-features-for-claude-cowork-and-managed-agents/",
+      "summary": "Anthropic launched Claude Managed Agents in public beta, offering a fully managed agent harness for running Claude as an autonomous agent with secure sandboxing, built-in tools, and server-sent event streaming. Claude Cowork also graduated from research preview on macOS, introducing new enterprise capabilities.",
+      "source": "9to5Mac",
+      "date": "Apr 9, 2026"
     },
     {
       "rank": 4,
-      "kicker": "Benchmarks",
-      "headline": "Claude Dethroning ChatGPT and Gemini as Top AI in 2026 Benchmarks",
-      "url": "https://themarketperiodical.com/2026/04/02/ai-news-why-is-claude-dethroning-chatgpt-gemini-as-the-best-ai/",
-      "summary": "Claude has outperformed ChatGPT and Google Gemini across a rigorous 2026 benchmark gauntlet, signaling a major shift in AI industry standing. On prediction market Kalshi, traders placed 54% odds on Claude becoming the best AI overall, compared to 10.9% for ChatGPT and 24.9% for Gemini. The results are attributed to Claude's strength in grounded, high-precision reasoning and its Sonnet 4.6 and Opus 4.6 model releases.",
-      "source": "The Market Periodical",
-      "date": "Apr 2, 2026"
+      "kicker": "Legal",
+      "headline": "Federal Court Rejects Anthropic's Challenge to Pentagon AI Blacklist, Sets May Oral Arguments",
+      "url": "https://news.bitcoin.com/federal-judges-deny-anthropic-relief-in-claude-military-ai-ban-set-may-oral-arguments/",
+      "summary": "A federal appeals court in Washington rejected Anthropic's bid to immediately halt the Pentagon's blacklisting of Claude from U.S. military contracts. Expedited oral arguments are scheduled for May 19, 2026, as the legal battle over AI restrictions in defense applications continues.",
+      "source": "Bitcoin News",
+      "date": "Apr 10, 2026"
     },
     {
       "rank": 5,
       "kicker": "Product",
-      "headline": "Claude Code Gets Major Feature Wave: Computer Use, Remote Sessions, and 128k Output",
+      "headline": "Claude Code March 2026 Update: Computer Use, Auto Mode, and Major Capability Expansion",
       "url": "https://www.builder.io/blog/claude-code-updates",
-      "summary": "Claude Code received a substantial wave of new capabilities in March and April 2026, including computer use for agentic tasks, auto mode, and remote cloud sessions that can follow PRs and fix CI failures. The latest release also raises maximum output token limits to 128,000 for Opus 4.6 and Sonnet 4.6, adds PowerShell support on Windows, and introduces new hook events and an interactive '/powerup' tutorial system. These updates position Claude Code as a rapidly maturing autonomous coding agent.",
+      "summary": "Claude Code received substantial updates in March 2026 including computer use for agentic tasks, auto mode for autonomous work, and cloud auto-fix for PR management. The release also features improved visualization support, faster Write tool performance, and new security permissions for mobile approval forwarding.",
       "source": "Builder.io",
       "date": "Apr 2, 2026"
     }
